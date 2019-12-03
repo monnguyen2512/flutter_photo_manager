@@ -135,6 +135,8 @@ class AssetEntity {
 
   /// if you need upload file ,then you can use the file, nullable.
   Future<File> get file async => PhotoManager._getFileWithId(this.id);
+  
+  Future<File> get path async => PhotoManager._getPath(this.id);
 
   /// This contains all the EXIF information, but in contrast, `Image` widget may not be able to display pictures.
   ///
