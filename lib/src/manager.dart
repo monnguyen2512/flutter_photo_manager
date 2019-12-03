@@ -126,6 +126,14 @@ class PhotoManager {
   static Future<Uint8List> _getFullDataWithId(String id) async {
     return _plugin.getOriginBytes(id);
   }
+  
+  static Future<String> _getPath(String id) async {
+    if (Platform.isIOS || Platform.isAndroid) {
+      final path = await _plugin.getFullFile(id, isOrigin: false);
+      return path;
+    }
+    return null;
+  }
 
   static _getThumbDataWithId(
     String id, {
